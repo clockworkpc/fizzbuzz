@@ -1,4 +1,4 @@
 {
-  "module": "RubyTemplate",
-  "spec": "ruby_template"
+  "module": "FizzBuzz",
+  "spec": "fizz_buzz"
 }

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'bundler/setup'
 require 'facets'
+require 'json'
 require 'pry'
 require 'time'
 
@@ -16,12 +19,11 @@ require 'cpc/util/string_util'
 require 'cpc/util/time_stamp_util'
 require 'cpc/util/util'
 
-require 'ruby_template/set_up_project'
-
+require 'fizz_buzz/set_up_project'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
 
   # Disable RSpec exposing methods globally on `Module` and `main`
   config.disable_monkey_patching!

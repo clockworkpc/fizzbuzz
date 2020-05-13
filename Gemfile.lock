@@ -17,7 +17,7 @@ GIT
 PATH
   remote: .
   specs:
-    ruby_template (0.1.0)
+    fizz_buzz (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -170,7 +170,7 @@ DEPENDENCIES
   guard-rubocop
   rake
   rspec
-  ruby_template!
+  fizz_buzz!
   tzinfo (~> 1.2)
   tzinfo-data
   wdm (~> 0.1.1)
