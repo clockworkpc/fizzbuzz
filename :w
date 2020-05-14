@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+require 'fizz_buzz/version'
+
+module FizzBuzz
+  def fizz_buzz(a)
+    if (a % 3).zero?
+      'Fizz'
+    elsif a % 5 == 0
+      'Buzz'
+    else
+      a
+    end
+  end
+end
