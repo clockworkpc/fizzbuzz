@@ -20,6 +20,7 @@ require 'cpc/util/time_stamp_util'
 require 'cpc/util/util'
 
 require 'fizz_buzz/set_up_project'
+require 'fizz_buzz/demo'
 require 'fizz_buzz'
 
 RSpec.configure do |config|

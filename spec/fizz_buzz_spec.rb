@@ -34,6 +34,29 @@ RSpec.describe FizzBuzz do
     end
   end
 
+  describe 'FizzBash' do
+    it 'should return "Fizz" if divisible by 3' do
+      expect(fizz_bash(3)).to eq('Fizz')
+      expect(fizz_bash(6)).to eq('Fizz')
+      expect(fizz_bash(12)).to eq('Fizz')
+      expect(fizz_bash(15)).to eq('Fizz')
+    end
+
+    it 'should return "Bash" if square root is a whole number' do
+      expect(fizz_bash(4)).to eq('Bash')
+      expect(fizz_bash(25)).to eq('Bash')
+      expect(fizz_bash(49)).to eq('Bash')
+      expect(fizz_bash(64)).to eq('Bash')
+      expect(fizz_bash(100)).to eq('Bash')
+    end
+
+    it 'should return "FizzBash" if divisible by 3 and square root is a whole number' do
+      expect(fizz_bash(9)).to eq('FizzBash')
+      expect(fizz_bash(36)).to eq('FizzBash')
+      expect(fizz_bash(81)).to eq('FizzBash')
+    end
+  end
+
   describe 'FooBar' do
     it 'should return "Foo"' do
       expect(foo_bar(3)).to eq('Foo')
@@ -90,6 +113,68 @@ RSpec.describe FizzBuzz do
       expect(bash_crash(11)).to eq(11)
       expect(bash_crash(13)).to eq(13)
       expect(bash_crash(14)).to eq(14)
+    end
+  end
+
+  describe 'Refined Tests' do
+    before(:all) do
+      @range = (1..100).to_a
+    end
+
+    it 'should satisfy FizzBuzz' do
+      @range.each do |a|
+        if (a % 3).zero? && (a % 5).zero?
+          expect(fizz_buzz(a)).to eq('FizzBuzz')
+        elsif (a % 3).zero?
+          expect(fizz_buzz(a)).to eq('Fizz')
+        elsif (a % 5).zero?
+          expect(fizz_buzz(a)).to eq('Buzz')
+        else
+          expect(fizz_buzz(a)).to eq(a)
+        end
+      end
+    end
+
+    it 'should satisfy FizzBash' do
+      @range.each do |a|
+        if (a % 3).zero? && (Math.sqrt(a) % 1).zero?
+          expect(fizz_bash(a)).to eq('FizzBash')
+        elsif (a % 3).zero?
+          expect(fizz_bash(a)).to eq('Fizz')
+        elsif (Math.sqrt(a) % 1).zero?
+          expect(fizz_bash(a)).to eq('Bash')
+        else
+          expect(fizz_bash(a)).to eq(a)
+        end
+      end
+    end
+
+    it 'should satisfy FooBar' do
+      @range.each do |a|
+        if (a % 3).zero? && (a % 5).zero?
+          expect(foo_bar(a)).to eq('FooBar')
+        elsif (a % 3).zero?
+          expect(foo_bar(a)).to eq('Foo')
+        elsif (a % 5).zero?
+          expect(foo_bar(a)).to eq('Bar')
+        else
+          expect(foo_bar(a)).to eq(a)
+        end
+      end
+    end
+
+    it 'should satisfy BashCrash' do
+      @range.each do |a|
+        if (a % 4).zero? && (a % 5).zero?
+          expect(bash_crash(a)).to eq('BashCrash')
+        elsif (a % 4).zero?
+          expect(bash_crash(a)).to eq('Bash')
+        elsif (a % 5).zero?
+          expect(bash_crash(a)).to eq('Crash')
+        else
+          expect(bash_crash(a)).to eq(a)
+        end
+      end
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FizzBuzz
   class SetUpProject
     def project_details
@@ -5,16 +7,18 @@ module FizzBuzz
     end
 
     def gemspec_path
-      Dir.glob("*.gemspec").first
+      Dir.glob('*.gemspec').first
     end
 
     def parse_gemspec
       g = File.readlines(gemspec_path)
     end
 
-    def project_files(module_str, spec_str)
-      grep_ary = `grep -rnw -e "#{project_details["module"]}\\|#{project_details["spec"]}"`.split("\n")
-      grep_ary.map {|x| x.split(':').first unless x.match?(".git")}.compact.uniq
+    def project_files(_module_str, _spec_str)
+      grep_ary = `grep -rnw -e "#{project_details['module']}\\|#{project_details['spec']}"`.split("\n")
+      grep_ary.map do |x|
+        x.split(':').first unless x.match?('.git')
+      end .compact.uniq
     end
   end
 end
