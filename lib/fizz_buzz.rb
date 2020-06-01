@@ -105,21 +105,21 @@ module FizzBuzz
     conditional_string_or_integer(a, hsh_ary)
   end
 
-  def test_io(*args)
+  def test_hash_array(*args)
     args.map { |arg| { condition: arg[0], output: arg[1] } }
   end
 
   def fizz_buzz(a)
     fizz = [->(a) { a % 3 == 0 }, 'Fizz']
     buzz = [->(a) { a % 5 == 0 }, 'Buzz']
-    hsh_ary = test_io(fizz, buzz)
+    hsh_ary = test_hash_array(fizz, buzz)
     conditional_string_or_integer(a, hsh_ary)
   end
 
   def fizz_bash(a)
     fizz = [->(a) { a % 3 == 0 }, 'Fizz']
     bash = [->(a) { Math.sqrt(a) % 1 == 0 }, 'Bash']
-    hsh_ary = test_io(fizz, bash)
+    hsh_ary = test_hash_array(fizz, bash)
     conditional_string_or_integer(a, hsh_ary)
   end
 
@@ -134,14 +134,14 @@ module FizzBuzz
   def fizz_buzz(a)
     fizz = modulo_io(3, 'Fizz')
     buzz = modulo_io(5, 'Buzz')
-    hsh_ary = test_io(fizz, buzz)
+    hsh_ary = test_hash_array(fizz, buzz)
     conditional_string_or_integer(a, hsh_ary)
   end
 
   def fizz_bash(a)
     fizz = modulo_io(3, 'Fizz')
     bash = sqrt_io('Bash')
-    hsh_ary = test_io(fizz, bash)
+    hsh_ary = test_hash_array(fizz, bash)
     conditional_string_or_integer(a, hsh_ary)
   end
 
@@ -163,21 +163,21 @@ module FizzBuzz
 
   def fizz_buzz(a)
     fizz, buzz = fizz_buzz_io
-    conditional_string_or_integer(a, test_io(fizz, buzz))
+    conditional_string_or_integer(a, test_hash_array(fizz, buzz))
   end
 
   def fizz_bash(a)
     fizz, bash = fizz_bash_io
-    conditional_string_or_integer(a, test_io(fizz, bash))
+    conditional_string_or_integer(a, test_hash_array(fizz, bash))
   end
 
   def foo_bar(a)
     foo, bar = foo_bar_io
-    conditional_string_or_integer(a, test_io(foo, bar))
+    conditional_string_or_integer(a, test_hash_array(foo, bar))
   end
 
   def bash_crash(a)
     bash, crash = bash_crash_io
-    conditional_string_or_integer(a, test_io(bash, crash))
+    conditional_string_or_integer(a, test_hash_array(bash, crash))
   end
 end

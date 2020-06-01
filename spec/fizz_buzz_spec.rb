@@ -6,23 +6,23 @@ RSpec.describe FizzBuzz do
   include FizzBuzz
 
   describe 'FizzBuzz' do
-    it 'should return "Fizz"' do
+    it 'should return "Fizz" for a number divisible by 3' do
       expect(fizz_buzz(3)).to eq('Fizz')
       expect(fizz_buzz(6)).to eq('Fizz')
       expect(fizz_buzz(9)).to eq('Fizz')
       expect(fizz_buzz(12)).to eq('Fizz')
     end
 
-    it 'should return "Buzz"' do
+    it 'should return "Buzz" for a number divisible by 5' do
       expect(fizz_buzz(5)).to eq('Buzz')
       expect(fizz_buzz(10)).to eq('Buzz')
     end
 
-    it 'should return FizzBuzz' do
+    it 'should return FizzBuzz for a number divisible by both 3 and 5' do
       expect(fizz_buzz(15)).to eq('FizzBuzz')
     end
 
-    it 'should return the number' do
+    it 'should return the number if the number is divisible by neither 3 nor 5' do
       expect(fizz_buzz(1)).to eq(1)
       expect(fizz_buzz(2)).to eq(2)
       expect(fizz_buzz(4)).to eq(4)
