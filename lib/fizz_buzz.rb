@@ -105,8 +105,8 @@ module FizzBuzz
     conditional_string_or_integer(a, hsh_ary)
   end
 
-  def test_hash_array(*args)
-    args.map { |arg| { condition: arg[0], output: arg[1] } }
+  def test_hash_array(*hashes)
+    hashes.map { |hsh| { condition: hsh[0], output: hsh[1] } }
   end
 
   def fizz_buzz(a)
@@ -179,5 +179,34 @@ module FizzBuzz
   def bash_crash(a)
     bash, crash = bash_crash_io
     conditional_string_or_integer(a, test_hash_array(bash, crash))
+  end
+
+  def game_rules(io_ary)
+    io_ary.map { |io| { condition: io[0], result: io[1] } }
+  end
+
+  def fizz_buzz_rules
+    game_rules(fizz_buzz_io)
+  end
+
+  def fizz_bash_rules
+    game_rules(fizz_bash_io)
+  end
+
+  def play_rule(input, rule)
+    rule[:result] if rule[:condition].call(input)
+  end
+
+  def play_game(input, rules)
+    s = rules.map { |rule| play_rule(input, rule) }.join
+    s.empty? ? input : s
+  end
+
+  def fizz_buzz(a)
+    play_game(a, fizz_buzz_rules)
+  end
+
+  def fizz_bash(a)
+    play_game(a, fizz_bash_rules)
   end
 end

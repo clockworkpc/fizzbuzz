@@ -32,6 +32,22 @@ RSpec.describe FizzBuzz do
       expect(fizz_buzz(13)).to eq(13)
       expect(fizz_buzz(14)).to eq(14)
     end
+
+    it 'should apply the rules of FizzBuzz' do
+      (1..100).to_a.each do |a|
+        result = fizz_buzz(a)
+        puts result
+        if a % 3 == 0 && a % 5 == 0
+          expect(result).to eq('FizzBuzz')
+        elsif a % 3 == 0
+          expect(result).to eq('Fizz')
+        elsif a % 5 == 0
+          expect(result).to eq('Buzz')
+        else
+          expect(result).to eq(a)
+        end
+      end
+    end
   end
 
   describe 'FizzBash' do
