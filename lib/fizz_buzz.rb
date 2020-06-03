@@ -153,14 +153,6 @@ module FizzBuzz
     [modulo_io(3, 'Fizz'), sqrt_io('Bash')]
   end
 
-  def foo_bar_io
-    [modulo_io(3, 'Foo'), modulo_io(5, 'Bar')]
-  end
-
-  def bash_crash_io
-    [modulo_io(4, 'Bash'), modulo_io(5, 'Crash')]
-  end
-
   def fizz_buzz(a)
     fizz, buzz = fizz_buzz_io
     conditional_string_or_integer(a, test_hash_array(fizz, buzz))
@@ -169,16 +161,6 @@ module FizzBuzz
   def fizz_bash(a)
     fizz, bash = fizz_bash_io
     conditional_string_or_integer(a, test_hash_array(fizz, bash))
-  end
-
-  def foo_bar(a)
-    foo, bar = foo_bar_io
-    conditional_string_or_integer(a, test_hash_array(foo, bar))
-  end
-
-  def bash_crash(a)
-    bash, crash = bash_crash_io
-    conditional_string_or_integer(a, test_hash_array(bash, crash))
   end
 
   def game_rules(io_ary)
