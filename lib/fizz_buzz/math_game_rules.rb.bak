@@ -1,0 +1,21 @@
+# # frozen_string_literal: true
+
+# module FizzBuzz
+#   module MathGameRules
+#     def self.modulo(int, str)
+#       MathRules.modulo(int, str)
+#     end
+
+#     def self.square_root(str)
+#       MathRules.square_root(str)
+#     end
+
+#     def self.cube_root(str)
+#       MathRules.cube_root(str)
+#     end
+
+#     def self.logarithm(base, str)
+#       MathRules.logarithm(base, str)
+#     end
+#   end
+# end
