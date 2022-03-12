@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
-RSpec.describe FizzBuzz do
+RSpec.describe FizzBuzz do # rubocop:disable Metrics/BlockLength
   include FizzBuzz
 
   let(:fizz_buzz_results) do
@@ -114,7 +112,7 @@ RSpec.describe FizzBuzz do
     end
   end
 
-  def fib(n)
+  def fib(n) # rubocop:disable Naming/MethodParameterName
     n1, n2 = [0, 1]
     (n - 1).times { n1, n2 = n2, n1 + n2 }
     n1
