@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe FizzBuzz do # rubocop:disable Metrics/BlockLength
+RSpec.describe FizzBuzz do
   include FizzBuzz
 
   let(:fizz_buzz_results) do
@@ -89,28 +89,29 @@ RSpec.describe FizzBuzz do # rubocop:disable Metrics/BlockLength
         key = [fizz, bash, bang].join
         expected_result = key.empty? ? n : key
 
+        puts "#{n} => #{result}" if result.to_s.match?('FizzBashBang')
         expect(result).to eq(expected_result)
       end
     end
   end
 
-  describe 'FizzBuzzBashBangBoom' do
-    it 'should play FizzBuzzBashBangBoom from 1 to 1,000' do
-      (1..10_000).to_a.each do |n|
-        result = fizz_buzz_bash_boom(n)
+  # describe 'FizzBuzzBashBangBoom' do
+  #   it 'should play FizzBuzzBashBangBoom from 1 to 10,000' do
+  #     (1..10_000).to_a.each do |n|
+  #       result = fizz_buzz_bash_boom(n)
 
-        fizz = 'Fizz' if (n % 3).zero?
-        buzz = 'Buzz' if (n % 5).zero?
-        bash = 'Bash' if (Math.sqrt(n) % 1).zero?
-        boom = 'Boom' if (fib(n) % 3).zero?
+  #       fizz = 'Fizz' if (n % 3).zero?
+  #       buzz = 'Buzz' if (n % 5).zero?
+  #       bash = 'Bash' if (Math.sqrt(n) % 1).zero?
+  #       boom = 'Boom' if (fib(n) % 3).zero?
 
-        key = [fizz, buzz, bash, boom].join
-        puts "#{n} => #{result}" if result.to_s.match?('FizzBuzzBashBoom')
-        expected_result = key.empty? ? n : key
-        expect(result).to eq(expected_result)
-      end
-    end
-  end
+  #       key = [fizz, buzz, bash, boom].join
+  #       puts "#{n} => #{result}" if result.to_s.match?('FizzBuzzBashBoom')
+  #       expected_result = key.empty? ? n : key
+  #       expect(result).to eq(expected_result)
+  #     end
+  #   end
+  # end
 
   def fib(n) # rubocop:disable Naming/MethodParameterName
     n1, n2 = [0, 1]
